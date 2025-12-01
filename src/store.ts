@@ -4,7 +4,7 @@ import * as THREE from 'three';
 export const TILE_SIZE = 1;
 export const COLS = 40;
 export const ROWS = 40;
-export const REVEAL_RADIUS = 4;
+export const REVEAL_RADIUS = 2;
 export const REVEAL_DURATION = 8000; // 5 seconds before hiding
 
 export interface GridCell {

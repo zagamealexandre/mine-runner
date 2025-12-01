@@ -1,4 +1,4 @@
-import Y, { useRef as N, useEffect as Q, useMemo as ce, useState as xr } from "react";
+import Y, { useRef as N, useEffect as Q, useMemo as ce, useState as _r } from "react";
 import { useFrame as ee, useThree as Sr, Canvas as wr } from "@react-three/fiber";
 import * as M from "three";
 import { Text as Pr } from "@react-three/drei";
@@ -38,8 +38,8 @@ function Tr() {
     }
     function Ue(e, r, t) {
       {
-        var s = I.ReactDebugCurrentFrame, m = s.getStackAddendum();
-        m !== "" && (r += "%s", t = t.concat([m]));
+        var s = I.ReactDebugCurrentFrame, y = s.getStackAddendum();
+        y !== "" && (r += "%s", t = t.concat([y]));
         var b = t.map(function(f) {
           return String(f);
         });
@@ -59,8 +59,8 @@ function Tr() {
       var s = e.displayName;
       if (s)
         return s;
-      var m = r.displayName || r.name || "";
-      return m !== "" ? t + "(" + m + ")" : t;
+      var y = r.displayName || r.name || "";
+      return y !== "" ? t + "(" + y + ")" : t;
     }
     function de(e) {
       return e.displayName || "Context";
@@ -100,7 +100,7 @@ function Tr() {
             var s = e.displayName || null;
             return s !== null ? s : A(e.type) || "Memo";
           case E: {
-            var m = e, b = m._payload, f = m._init;
+            var y = e, b = y._payload, f = y._init;
             try {
               return A(f(b));
             } catch {
@@ -178,8 +178,8 @@ function Tr() {
         if (te === void 0)
           try {
             throw Error();
-          } catch (m) {
-            var s = m.stack.trim().match(/\n( *(at )?)/);
+          } catch (y) {
+            var s = y.stack.trim().match(/\n( *(at )?)/);
             te = s && s[1] || "";
           }
         return `
@@ -201,7 +201,7 @@ function Tr() {
       }
       var s;
       ne = !0;
-      var m = Error.prepareStackTrace;
+      var y = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
       var b;
       b = re.current, re.current = null, Ke();
@@ -241,23 +241,23 @@ function Tr() {
         if (P && s && typeof P.stack == "string") {
           for (var l = P.stack.split(`
 `), w = s.stack.split(`
-`), _ = l.length - 1, x = w.length - 1; _ >= 1 && x >= 0 && l[_] !== w[x]; )
-            x--;
-          for (; _ >= 1 && x >= 0; _--, x--)
-            if (l[_] !== w[x]) {
-              if (_ !== 1 || x !== 1)
+`), x = l.length - 1, _ = w.length - 1; x >= 1 && _ >= 0 && l[x] !== w[_]; )
+            _--;
+          for (; x >= 1 && _ >= 0; x--, _--)
+            if (l[x] !== w[_]) {
+              if (x !== 1 || _ !== 1)
                 do
-                  if (_--, x--, x < 0 || l[_] !== w[x]) {
+                  if (x--, _--, _ < 0 || l[x] !== w[_]) {
                     var T = `
-` + l[_].replace(" at new ", " at ");
+` + l[x].replace(" at new ", " at ");
                     return e.displayName && T.includes("<anonymous>") && (T = T.replace("<anonymous>", e.displayName)), typeof e == "function" && X.set(e, T), T;
                   }
-                while (_ >= 1 && x >= 0);
+                while (x >= 1 && _ >= 0);
               break;
             }
         }
       } finally {
-        ne = !1, re.current = b, He(), Error.prepareStackTrace = m;
+        ne = !1, re.current = b, He(), Error.prepareStackTrace = y;
       }
       var W = e ? e.displayName || e.name : "", F = W ? q(W) : "";
       return typeof e == "function" && X.set(e, F), F;
@@ -289,24 +289,24 @@ function Tr() {
           case v:
             return K(e.type, r, t);
           case E: {
-            var s = e, m = s._payload, b = s._init;
+            var s = e, y = s._payload, b = s._init;
             try {
-              return K(b(m), r, t);
+              return K(b(y), r, t);
             } catch {
             }
           }
         }
       return "";
     }
-    var U = Object.prototype.hasOwnProperty, _e = {}, xe = I.ReactDebugCurrentFrame;
+    var U = Object.prototype.hasOwnProperty, xe = {}, _e = I.ReactDebugCurrentFrame;
     function H(e) {
       if (e) {
         var r = e._owner, t = K(e.type, e._source, r ? r.type : null);
-        xe.setExtraStackFrame(t);
+        _e.setExtraStackFrame(t);
       } else
-        xe.setExtraStackFrame(null);
+        _e.setExtraStackFrame(null);
     }
-    function rr(e, r, t, s, m) {
+    function rr(e, r, t, s, y) {
       {
         var b = Function.call.bind(U);
         for (var f in e)
@@ -318,10 +318,10 @@ function Tr() {
                 throw w.name = "Invariant Violation", w;
               }
               l = e[f](r, f, s, t, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (_) {
-              l = _;
+            } catch (x) {
+              l = x;
             }
-            l && !(l instanceof Error) && (H(m), S("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", s || "React class", t, f, typeof l), H(null)), l instanceof Error && !(l.message in _e) && (_e[l.message] = !0, H(m), S("Failed %s type: %s", t, l.message), H(null));
+            l && !(l instanceof Error) && (H(y), S("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", s || "React class", t, f, typeof l), H(null)), l instanceof Error && !(l.message in xe) && (xe[l.message] = !0, H(y), S("Failed %s type: %s", t, l.message), H(null));
           }
       }
     }
@@ -396,7 +396,7 @@ function Tr() {
         });
       }
     }
-    var fr = function(e, r, t, s, m, b, f) {
+    var fr = function(e, r, t, s, y, b, f) {
       var l = {
         // This tag allows us to uniquely identify this as a React Element
         $$typeof: a,
@@ -422,25 +422,25 @@ function Tr() {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: m
+        value: y
       }), Object.freeze && (Object.freeze(l.props), Object.freeze(l)), l;
     };
-    function dr(e, r, t, s, m) {
+    function dr(e, r, t, s, y) {
       {
         var b, f = {}, l = null, w = null;
-        t !== void 0 && (we(t), l = "" + t), sr(r) && (we(r.key), l = "" + r.key), ir(r) && (w = r.ref, ur(r, m));
+        t !== void 0 && (we(t), l = "" + t), sr(r) && (we(r.key), l = "" + r.key), ir(r) && (w = r.ref, ur(r, y));
         for (b in r)
           U.call(r, b) && !or.hasOwnProperty(b) && (f[b] = r[b]);
         if (e && e.defaultProps) {
-          var _ = e.defaultProps;
-          for (b in _)
-            f[b] === void 0 && (f[b] = _[b]);
+          var x = e.defaultProps;
+          for (b in x)
+            f[b] === void 0 && (f[b] = x[b]);
         }
         if (l || w) {
-          var x = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
-          l && cr(f, x), w && lr(f, x);
+          var _ = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
+          l && cr(f, _), w && lr(f, _);
         }
-        return fr(e, l, w, m, s, Pe.current, f);
+        return fr(e, l, w, y, s, Pe.current, f);
       }
     }
     var oe = I.ReactCurrentOwner, Oe = I.ReactDebugCurrentFrame;
@@ -509,9 +509,9 @@ Check the top-level render call using <` + t + ">.");
         else if (se(e))
           e._store && (e._store.validated = !0);
         else if (e) {
-          var m = Ve(e);
-          if (typeof m == "function" && m !== e.entries)
-            for (var b = m.call(e), f; !(f = b.next()).done; )
+          var y = Ve(e);
+          if (typeof y == "function" && y !== e.entries)
+            for (var b = y.call(e), f; !(f = b.next()).done; )
               se(f.value) && ke(f.value, r);
         }
       }
@@ -535,8 +535,8 @@ Check the top-level render call using <` + t + ">.");
           rr(t, e.props, "prop", s, e);
         } else if (r.PropTypes !== void 0 && !ie) {
           ie = !0;
-          var m = A(r);
-          S("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", m || "Unknown");
+          var y = A(r);
+          S("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", y || "Unknown");
         }
         typeof r.getDefaultProps == "function" && !r.getDefaultProps.isReactClassApproved && S("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
       }
@@ -554,7 +554,7 @@ Check the top-level render call using <` + t + ">.");
       }
     }
     var De = {};
-    function Fe(e, r, t, s, m, b) {
+    function Fe(e, r, t, s, y, b) {
       {
         var f = qe(e);
         if (!f) {
@@ -562,12 +562,12 @@ Check the top-level render call using <` + t + ">.");
           (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (l += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
           var w = vr();
           w ? l += w : l += Ce();
-          var _;
-          e === null ? _ = "null" : ae(e) ? _ = "array" : e !== void 0 && e.$$typeof === a ? (_ = "<" + (A(e.type) || "Unknown") + " />", l = " Did you accidentally export a JSX literal instead of a component?") : _ = typeof e, S("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", _, l);
+          var x;
+          e === null ? x = "null" : ae(e) ? x = "array" : e !== void 0 && e.$$typeof === a ? (x = "<" + (A(e.type) || "Unknown") + " />", l = " Did you accidentally export a JSX literal instead of a component?") : x = typeof e, S("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", x, l);
         }
-        var x = dr(e, r, t, m, b);
-        if (x == null)
-          return x;
+        var _ = dr(e, r, t, y, b);
+        if (_ == null)
+          return _;
         if (f) {
           var T = r.children;
           if (T !== void 0)
@@ -582,8 +582,8 @@ Check the top-level render call using <` + t + ">.");
               Ae(T, e);
         }
         if (U.call(r, "key")) {
-          var F = A(e), P = Object.keys(r).filter(function(_r) {
-            return _r !== "key";
+          var F = A(e), P = Object.keys(r).filter(function(xr) {
+            return xr !== "key";
           }), ue = P.length > 0 ? "{key: someKey, " + P.join(": ..., ") + ": ...}" : "{key: someKey}";
           if (!De[F + ue]) {
             var Er = P.length > 0 ? "{" + P.join(": ..., ") + ": ...}" : "{}";
@@ -595,7 +595,7 @@ React keys must be passed directly to JSX without using spread:
   <%s key={someKey} {...props} />`, ue, F, Er, F), De[F + ue] = !0;
           }
         }
-        return e === c ? mr(x) : hr(x), x;
+        return e === c ? mr(_) : hr(_), _;
       }
     }
     function yr(e, r, t) {
@@ -612,7 +612,7 @@ var We;
 function Or() {
   return We || (We = 1, process.env.NODE_ENV === "production" ? Z.exports = jr() : Z.exports = Tr()), Z.exports;
 }
-var y = Or();
+var m = Or();
 const Ye = (n) => {
   let a;
   const i = /* @__PURE__ */ new Set(), c = (g, R) => {
@@ -635,7 +635,7 @@ function kr(n, a = Mr) {
 const $e = (n) => {
   const a = Cr(n), i = (c) => kr(a, c);
   return Object.assign(i, a), i;
-}, Ar = ((n) => n ? $e(n) : $e), j = 1, O = 40, C = 40, B = 4, Dr = 8e3, J = Ar((n, a) => ({
+}, Ar = ((n) => n ? $e(n) : $e), j = 1, O = 40, C = 40, B = 2, Dr = 8e3, J = Ar((n, a) => ({
   grid: [],
   playerPos: new M.Vector2(O / 2, C / 2),
   mousePos: new M.Vector2(O / 2, C / 2),
@@ -738,7 +738,7 @@ function Fr({ position: n, count: a = 20 }) {
     const u = new M.BufferGeometry(), h = new Float32Array(a * 3), d = new Float32Array(a);
     return u.setAttribute("position", new M.BufferAttribute(h, 3)), u.setAttribute("size", new M.BufferAttribute(d, 1)), u;
   }, [a]);
-  return /* @__PURE__ */ y.jsx("points", { ref: c, geometry: o, children: /* @__PURE__ */ y.jsx(
+  return /* @__PURE__ */ m.jsx("points", { ref: c, geometry: o, children: /* @__PURE__ */ m.jsx(
     "pointsMaterial",
     {
       size: 0.15,
@@ -751,7 +751,7 @@ function Fr({ position: n, count: a = 20 }) {
   ) });
 }
 function Ir({ cell: n }) {
-  const a = N(null), [i, c] = xr(!1), o = N(!1), u = ce(() => {
+  const a = N(null), [i, c] = _r(!1), o = N(!1), u = ce(() => {
     const d = new M.MeshStandardMaterial({ color: "#ff4444" }), p = new M.MeshStandardMaterial({ color: "#ffffff" }), g = new M.MeshStandardMaterial({ color: "#333333" });
     return [
       g,
@@ -805,8 +805,8 @@ function Ir({ cell: n }) {
         return "black";
     }
   }, [n.count]);
-  return /* @__PURE__ */ y.jsxs("group", { position: [n.x * j, 0, n.y * j], children: [
-    /* @__PURE__ */ y.jsxs(
+  return /* @__PURE__ */ m.jsxs("group", { position: [n.x * j, 0, n.y * j], children: [
+    /* @__PURE__ */ m.jsxs(
       "mesh",
       {
         ref: a,
@@ -815,11 +815,11 @@ function Ir({ cell: n }) {
         castShadow: !0,
         receiveShadow: !0,
         children: [
-          /* @__PURE__ */ y.jsx("boxGeometry", { args: [j * 0.95, 0.2, j * 0.95] }),
-          n.revealed && /* @__PURE__ */ y.jsx(y.Fragment, { children: n.mine ? /* @__PURE__ */ y.jsxs("mesh", { position: [0, -0.1, 0], children: [
-            /* @__PURE__ */ y.jsx("sphereGeometry", { args: [0.25] }),
-            /* @__PURE__ */ y.jsx("meshStandardMaterial", { color: "black" })
-          ] }) : n.count > 0 && /* @__PURE__ */ y.jsx(
+          /* @__PURE__ */ m.jsx("boxGeometry", { args: [j * 0.95, 0.2, j * 0.95] }),
+          n.revealed && /* @__PURE__ */ m.jsx(m.Fragment, { children: n.mine ? /* @__PURE__ */ m.jsxs("mesh", { position: [0, -0.1, 0], children: [
+            /* @__PURE__ */ m.jsx("sphereGeometry", { args: [0.25] }),
+            /* @__PURE__ */ m.jsx("meshStandardMaterial", { color: "black" })
+          ] }) : n.count > 0 && /* @__PURE__ */ m.jsx(
             Pr,
             {
               position: [0, -0.11, 0],
@@ -835,7 +835,7 @@ function Ir({ cell: n }) {
         ]
       }
     ),
-    i && /* @__PURE__ */ y.jsx(
+    i && /* @__PURE__ */ m.jsx(
       Fr,
       {
         position: new M.Vector3(0, 0.5, 0),
@@ -846,18 +846,18 @@ function Ir({ cell: n }) {
 }
 function Lr() {
   const n = J((a) => a.grid);
-  return /* @__PURE__ */ y.jsx("group", { children: n.map(
-    (a, i) => a.map((c, o) => /* @__PURE__ */ y.jsx(Ir, { cell: c }, `${o}-${i}`))
+  return /* @__PURE__ */ m.jsx("group", { children: n.map(
+    (a, i) => a.map((c, o) => /* @__PURE__ */ m.jsx(Ir, { cell: c }, `${o}-${i}`))
   ) });
 }
 function Wr() {
   const n = J((i) => i.playerPos), a = N(null);
   return ee(() => {
     a.current && (a.current.position.x = n.x * j, a.current.position.z = n.y * j);
-  }), /* @__PURE__ */ y.jsxs("mesh", { ref: a, position: [0, 0.5, 0], children: [
-    /* @__PURE__ */ y.jsx("sphereGeometry", { args: [0.3] }),
-    /* @__PURE__ */ y.jsx("meshStandardMaterial", { color: "#00ff88", emissive: "#00ff88", emissiveIntensity: 0.5 }),
-    /* @__PURE__ */ y.jsx("pointLight", { distance: 5, intensity: 2, color: "#00ff88" })
+  }), /* @__PURE__ */ m.jsxs("mesh", { ref: a, position: [0, 0.5, 0], children: [
+    /* @__PURE__ */ m.jsx("sphereGeometry", { args: [0.3] }),
+    /* @__PURE__ */ m.jsx("meshStandardMaterial", { color: "#00ff88", emissive: "#00ff88", emissiveIntensity: 0.5 }),
+    /* @__PURE__ */ m.jsx("pointLight", { distance: 5, intensity: 2, color: "#00ff88" })
   ] });
 }
 function Yr() {
@@ -871,10 +871,10 @@ function Yr() {
     const u = o.point.x / j, h = o.point.z / j;
     n(u, h);
   };
-  return /* @__PURE__ */ y.jsxs(y.Fragment, { children: [
-    /* @__PURE__ */ y.jsx("ambientLight", { intensity: 0.5 }),
-    /* @__PURE__ */ y.jsx("directionalLight", { position: [10, 20, 10], intensity: 1, castShadow: !0 }),
-    /* @__PURE__ */ y.jsxs(
+  return /* @__PURE__ */ m.jsxs(m.Fragment, { children: [
+    /* @__PURE__ */ m.jsx("ambientLight", { intensity: 0.5 }),
+    /* @__PURE__ */ m.jsx("directionalLight", { position: [10, 20, 10], intensity: 1, castShadow: !0 }),
+    /* @__PURE__ */ m.jsxs(
       "mesh",
       {
         rotation: [-Math.PI / 2, 0, 0],
@@ -883,22 +883,23 @@ function Yr() {
         onPointerMove: c,
         visible: !1,
         children: [
-          /* @__PURE__ */ y.jsx("planeGeometry", {}),
-          /* @__PURE__ */ y.jsx("meshBasicMaterial", { color: "red", wireframe: !0 })
+          /* @__PURE__ */ m.jsx("planeGeometry", {}),
+          /* @__PURE__ */ m.jsx("meshBasicMaterial", { color: "red", wireframe: !0 })
         ]
       }
     ),
-    /* @__PURE__ */ y.jsx(Lr, {}),
-    /* @__PURE__ */ y.jsx(Wr, {})
+    /* @__PURE__ */ m.jsx(Lr, {}),
+    /* @__PURE__ */ m.jsx(Wr, {})
   ] });
 }
 function zr() {
   const n = J((a) => a.initGrid);
   return Q(() => {
     n();
-  }, [n]), /* @__PURE__ */ y.jsx("div", { style: { width: "100%", height: "100%", background: "#111", overflow: "hidden", position: "relative" }, children: /* @__PURE__ */ y.jsx(
+  }, [n]), /* @__PURE__ */ m.jsx("div", { style: { width: "100%", height: "100%", background: "#000000", overflow: "hidden", position: "relative" }, children: /* @__PURE__ */ m.jsxs(
     wr,
     {
+      gl: { antialias: !0 },
       camera: {
         position: [20, 25, 55],
         fov: 35,
@@ -906,7 +907,10 @@ function zr() {
         far: 1e3
       },
       shadows: !0,
-      children: /* @__PURE__ */ y.jsx(Yr, {})
+      children: [
+        /* @__PURE__ */ m.jsx("color", { attach: "background", args: ["#000000"] }),
+        /* @__PURE__ */ m.jsx(Yr, {})
+      ]
     }
   ) });
 }

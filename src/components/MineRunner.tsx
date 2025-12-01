@@ -11,8 +11,9 @@ export function MineRunner() {
     }, [initGrid]);
 
     return (
-        <div style={{ width: '100%', height: '100%', background: '#111', overflow: 'hidden', position: 'relative' }}>
+        <div style={{ width: '100%', height: '100%', background: '#000000', overflow: 'hidden', position: 'relative' }}>
             <Canvas
+                gl={{ antialias: true }}
                 camera={{
                     position: [20, 25, 55],
                     fov: 35,
@@ -21,6 +22,7 @@ export function MineRunner() {
                 }}
                 shadows
             >
+                <color attach="background" args={['#000000']} />
                 <GameScene />
             </Canvas>
         </div>
